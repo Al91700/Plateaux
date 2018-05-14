@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "file": "local-storage.umd.js",
+  "sources": [
+    "ng://local-storage/out/lib/local-storage.service.ts"
+  ],
+  "sourcesContent": [
+    "import { Injectable, Inject, PLATFORM_ID } from '@angular/core';\nimport { isPlatformBrowser } from '@angular/common';\n\n@Injectable({ providedIn: 'root' })\nexport class LocalStorage {\n\n  constructor(@Inject(PLATFORM_ID) protected platformId: Object) {}\n\n  getItem<T = any>(index: string): null | T {\n\n    let value = null;\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      try {\n        let unparsedValue = null;\n        value = (unparsedValue = localStorage.getItem(index)) ? JSON.parse(unparsedValue) : null;\n      } catch (error) {\n        value = null;\n      }\n\n    }\n\n    return value;\n\n  }\n\n  setItem(index: string, value: any): void {\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      localStorage.setItem(index, JSON.stringify(value));\n\n    }\n\n  }\n\n  removeItem(index: string): void {\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      localStorage.removeItem(index);\n\n    }\n\n  }\n\n  clear(): void {\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      localStorage.clear();\n\n    }\n\n  }\n\n}\n"
+  ],
+  "names": [
+    "Inject",
+    "PLATFORM_ID",
+    "Injectable",
+    "isPlatformBrowser"
+  ],
+  "mappings": ";;;;;;AAAA,IAAA,YAAA,kBAAA,YAAA;IAME,SAAF,YAAA,CAA6C,UAA7C,EAAA;QAA6C,IAA7C,CAAA,UAAuD,GAAV,UAAU,CAAvD;KAAmE;IAEjE,YAAF,CAAA,SAAA,CAAA,OAAS,GAAP,UAAiB,KAAa,EAAhC;QAEI,IAAI,KAAK,GAAG,IAAI,CAAC;QAEjB,IAAIG,wBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,IAAI;gBACF,IAAI,aAAa,GAAG,IAAI,CAAC;gBACzB,KAAK,GAAG,CAAC,aAAa,GAAG,YAAY,CAAC,OAAO,CAAC,KAAK,CAAC,IAAI,IAAI,CAAC,KAAK,CAAC,aAAa,CAAC,GAAG,IAAI,CAAC;aAC1F;YAAC,OAAO,KAAK,EAAE;gBACd,KAAK,GAAG,IAAI,CAAC;aACd;SAEF;QAED,OAAO,KAAK,CAAC;KAEd,CAAH;IAEE,YAAF,CAAA,SAAA,CAAA,OAAS,GAAP,UAAQ,KAAa,EAAE,KAAU,EAAnC;QAEI,IAAIA,wBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,YAAY,CAAC,OAAO,CAAC,KAAK,EAAE,IAAI,CAAC,SAAS,CAAC,KAAK,CAAC,CAAC,CAAC;SAEpD;KAEF,CAAH;IAEE,YAAF,CAAA,SAAA,CAAA,UAAY,GAAV,UAAW,KAAa,EAA1B;QAEI,IAAIA,wBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,YAAY,CAAC,UAAU,CAAC,KAAK,CAAC,CAAC;SAEhC;KAEF,CAAH;IAEE,YAAF,CAAA,SAAA,CAAA,KAAO,GAAL,YAAF;QAEI,IAAIA,wBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,YAAY,CAAC,KAAK,EAAE,CAAC;SAEtB;KAEF,CAAH;;;;IApDA,EAAA,IAAA,EAACD,eAAU,EAAX,IAAA,EAAA,CAAY,EAAE,UAAU,EAAE,MAAM,EAAE,EAAlC,EAAA;;;IAGA,EAAA,IAAA,EAAA,MAAA,EAAA,UAAA,EAAA,CAAA,EAAA,IAAA,EAAeF,WAAM,EAArB,IAAA,EAAA,CAAsBC,gBAAW,EAAjC,EAAA,EAAA,EAAA;;;;;;;;;;;;;;"
+}

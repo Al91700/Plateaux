@@ -1,0 +1,16 @@
+{
+  "name": "@infoelsa/local-storage",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0",
+    "@angular/core": " ^6.0.0"
+  },
+  "main": "bundles/local-storage.umd.js",
+  "module": "esm5/local-storage.js",
+  "es2015": "esm2015/local-storage.js",
+  "typings": "local-storage.d.ts",
+  "metadata": "local-storage.metadata.json",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "extends": "../tslint.json",
+    "rules": {
+        "directive-selector": [
+            true,
+            "attribute",
+            "plateauxapp",
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            "plateauxapp",
+            "kebab-case"
+        ]
+    }
+}

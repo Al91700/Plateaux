@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "local-storage.js",
+  "sources": [
+    "ng://local-storage/out/lib/local-storage.service.ts"
+  ],
+  "sourcesContent": [
+    "import { Injectable, Inject, PLATFORM_ID } from '@angular/core';\nimport { isPlatformBrowser } from '@angular/common';\n\n@Injectable({ providedIn: 'root' })\nexport class LocalStorage {\n\n  constructor(@Inject(PLATFORM_ID) protected platformId: Object) {}\n\n  getItem<T = any>(index: string): null | T {\n\n    let value = null;\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      try {\n        let unparsedValue = null;\n        value = (unparsedValue = localStorage.getItem(index)) ? JSON.parse(unparsedValue) : null;\n      } catch (error) {\n        value = null;\n      }\n\n    }\n\n    return value;\n\n  }\n\n  setItem(index: string, value: any): void {\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      localStorage.setItem(index, JSON.stringify(value));\n\n    }\n\n  }\n\n  removeItem(index: string): void {\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      localStorage.removeItem(index);\n\n    }\n\n  }\n\n  clear(): void {\n\n    if (isPlatformBrowser(this.platformId)) {\n\n      localStorage.clear();\n\n    }\n\n  }\n\n}\n"
+  ],
+  "names": [],
+  "mappings": ";;;AAAA;IAME,sBAA2C,UAA7C;QAA6C,IAA7C,CAAA,UAAuD,GAAV,UAAU,CAAvD;KAAmE;IAEjE,8BAAO,GAAP,UAAiB,KAAa;QAE5B,IAAI,KAAK,GAAG,IAAI,CAAC;QAEjB,IAAI,iBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,IAAI;gBACF,IAAI,aAAa,GAAG,IAAI,CAAC;gBACzB,KAAK,GAAG,CAAC,aAAa,GAAG,YAAY,CAAC,OAAO,CAAC,KAAK,CAAC,IAAI,IAAI,CAAC,KAAK,CAAC,aAAa,CAAC,GAAG,IAAI,CAAC;aAC1F;YAAC,OAAO,KAAK,EAAE;gBACd,KAAK,GAAG,IAAI,CAAC;aACd;SAEF;QAED,OAAO,KAAK,CAAC;KAEd;IAED,8BAAO,GAAP,UAAQ,KAAa,EAAE,KAAU;QAE/B,IAAI,iBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,YAAY,CAAC,OAAO,CAAC,KAAK,EAAE,IAAI,CAAC,SAAS,CAAC,KAAK,CAAC,CAAC,CAAC;SAEpD;KAEF;IAED,iCAAU,GAAV,UAAW,KAAa;QAEtB,IAAI,iBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,YAAY,CAAC,UAAU,CAAC,KAAK,CAAC,CAAC;SAEhC;KAEF;IAED,4BAAK,GAAL;QAEE,IAAI,iBAAiB,CAAC,IAAI,CAAC,UAAU,CAAC,EAAE;YAEtC,YAAY,CAAC,KAAK,EAAE,CAAC;SAEtB;KAEF;;;;IApDH,EAAA,IAAA,EAAC,UAAU,EAAX,IAAA,EAAA,CAAY,EAAE,UAAU,EAAE,MAAM,EAAE,EAAlC,EAAA;;;IAGA,EAAA,IAAA,EAAA,MAAA,EAAA,UAAA,EAAA,CAAA,EAAA,IAAA,EAAe,MAAM,EAArB,IAAA,EAAA,CAAsB,WAAW,EAAjC,EAAA,EAAA,EAAA;;;;;;"
+}

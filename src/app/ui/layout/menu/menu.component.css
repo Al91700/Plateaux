@@ -1,0 +1,44 @@
+.mat-toolbar {
+  height: 100%;
+  padding: 0;
+  display: flex;
+}
+
+a {
+  width: calc(100% / 3);
+  padding: 20px 0 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: inherit;
+}
+
+a svg {
+  margin-right: 5px;
+}
+
+.nav-active {
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 2em;
+  height: 2em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #FFFFFF;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}

@@ -1,0 +1,38 @@
+@media all {
+
+  #produits-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #produits-list>plateauxapp-produits-item {
+    flex: calc(100% / 3);
+  }
+
+}
+
+@media all and (max-width: 459px) {
+
+  #produits-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  #produits-list>plateauxapp-produits-item {
+    flex: 100%;
+  }
+
+}
+
+@media all and (max-width: 600px) {
+
+  #produits-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #produits-list>plateauxapp-produits-item {
+    flex: calc(100% / 2);
+  }
+
+}
